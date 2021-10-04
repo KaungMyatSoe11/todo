@@ -1,6 +1,15 @@
-exports.handler = async function(event, context) {
-    return {
-        statusCode: 200,
-        body: JSON.stringify({message: "Hello World"})
-    };
-}
+const connectToDataBase = require("./utils/connectToDataBase");
+
+module.exports.handler = async () => {
+  const db = await connectToDataBase();
+  const data = await db.collection("tasks").find({}).toArray();
+  console.log(data);
+
+  return {
+    statusCode: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  };
+};
