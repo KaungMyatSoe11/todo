@@ -1,5 +1,13 @@
+import gettodos from "../utils/api/gettodos";
+
+// const initstate = gettodos());
+// console.log(initstate);
+
 export const todoreducer = (state = [], action) => {
   switch (action.type) {
+    case "LOAD_TASK":
+      console.log(action);
+      return action.payload;
     case "ADD_TASK":
       console.log(action);
       return [...state, action.payload];
@@ -8,7 +16,7 @@ export const todoreducer = (state = [], action) => {
 
       // eslint-disable-next-line array-callback-return
       state.map((item) => {
-        if (item.text === action.payload.text) {
+        if (item.text === action.payload.task) {
           item.status = !item.status;
         }
       });
