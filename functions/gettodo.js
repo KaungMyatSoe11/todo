@@ -1,6 +1,6 @@
 const connectToDataBase = require("./utils/connectToDataBase");
 
-module.exports.handler = async () => {
+exports.handler = async () => {
   const db = await connectToDataBase();
   const data = await db.collection("tasks").find({}).toArray();
   console.log(data);
