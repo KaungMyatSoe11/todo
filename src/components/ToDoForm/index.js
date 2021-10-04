@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
+import { v4 } from "uuid";
 import { todoactions } from "../../actions";
 
 const ToDoForm = () => {
@@ -12,7 +13,7 @@ const ToDoForm = () => {
   const add = (e) => {
     e.preventDefault();
     if (task !== "") {
-      addTask({ text: task, status: false });
+      addTask({ _id: v4(), task: task, status: false });
       txtTask.current.focus();
       setTask("");
     }
