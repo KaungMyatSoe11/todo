@@ -1,7 +1,6 @@
 import Home from "./container/Home";
 
 function App() {
-  
   return <Home />;
 }
 
