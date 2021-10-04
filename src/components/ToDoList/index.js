@@ -3,7 +3,6 @@ import { bindActionCreators } from "redux";
 import { todoactions } from "../../actions";
 
 const ToDoList = ({ todo }) => {
-  // console.log(todo);
   const dispatch = useDispatch();
   const { updateTask } = bindActionCreators(todoactions, dispatch);
 
@@ -17,13 +16,13 @@ const ToDoList = ({ todo }) => {
               className="form-control"
               style={{ textDecorationLine: "line-through" }}
             >
-              {todo.text}
+              {todo.task}
             </label>
           )}
 
           {!todo.status && (
             <label htmlFor="" className="form-control">
-              {todo.text}
+              {todo.task}
             </label>
           )}
 
